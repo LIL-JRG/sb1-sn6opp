@@ -1,0 +1,59 @@
+---
+import Layout from './Layout.astro';
+
+interface Props {
+  title: string;
+  category: string;
+  publishDate?: string;
+  imageUrl: string;
+}
+
+const { title, category, publishDate, imageUrl } = Astro.props;
+---
+
+<Layout title={`${title} | Shaila Rubín Seoane`}>
+  <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="mb-8">
+      <a href="/" class="text-primary-600 hover:text-primary-900 font-body inline-flex items-center">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        Volver al inicio
+      </a>
+    </div>
+
+    <header class="mb-12">
+      <div class="rounded-xl overflow-hidden mb-8 aspect-[21/9]">
+        <img 
+          src={imageUrl} 
+          alt={title}
+          class="w-full h-full object-cover"
+        />
+      </div>
+      <div class="text-center">
+        <span class="text-sm font-body uppercase tracking-wider text-primary-500">
+          {category}
+        </span>
+        <h1 class="font-display text-4xl md:text-5xl mt-2 mb-4">{title}</h1>
+        {publishDate && (
+          <time class="font-body text-primary-500">
+            {publishDate}
+          </time>
+        )}
+      </div>
+    </header>
+
+    <div class="prose prose-lg mx-auto font-body prose-headings:font-display prose-primary">
+      <slot />
+    </div>
+  </article>
+</Layout>
+
+<style>
+  .prose-primary {
+    --tw-prose-body: theme('colors.primary.600');
+    --tw-prose-headings: theme('colors.primary.900');
+    --tw-prose-links: theme('colors.primary.600');
+    --tw-prose-bold: theme('colors.primary.900');
+  }
+</style>

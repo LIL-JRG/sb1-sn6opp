@@ -1,0 +1,99 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+
+const featuredArticles = [
+  {
+    title: 'Visión 2034',
+    description: 'De estudiante de Marketing a líder innovadora en la industria digital. Un viaje de transformación y crecimiento profesional.',
+    category: 'Visión de Futuro',
+    imageUrl: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?auto=format&fit=crop&q=80',
+    slug: 'vision-2034'
+  },
+  {
+    title: 'Hitos Profesionales',
+    description: 'Un recorrido por los momentos decisivos que marcaron una década de logros extraordinarios en el mundo del marketing digital.',
+    category: 'Carrera',
+    imageUrl: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&q=80',
+    slug: 'hitos-profesionales'
+  },
+  {
+    title: 'Impacto Global',
+    description: 'Transformando el marketing digital a escala internacional. Proyectos y colaboraciones que trascienden fronteras.',
+    category: 'Internacional',
+    imageUrl: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&q=80',
+    slug: 'impacto-global'
+  },
+  {
+    title: 'Innovación y Tecnología',
+    description: 'Liderando la revolución digital: Cómo la tecnología y la innovación transformaron mi enfoque del marketing.',
+    category: 'Tecnología',
+    imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80',
+    slug: 'innovacion-tecnologia'
+  }
+];
+---
+
+<Layout title="Shaila Rubín Seoane | Digital Magazine">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <header class="text-center mb-20">
+      <h1 class="font-display text-5xl md:text-7xl mb-6 relative inline-block">
+        <span class="absolute -top-8 -left-6 text-9xl text-primary-200 opacity-20 pointer-events-none">S</span>
+        Shaila Rubín Seoane
+      </h1>
+      <p class="font-body text-xl text-primary-600 max-w-2xl mx-auto">
+        Una Década de Transformación: 2024-2034
+      </p>
+    </header>
+
+    <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+      {featuredArticles.map(article => (
+        <a href={`/blog/${article.slug}`}>
+          <ArticleCard {...article} />
+        </a>
+      ))}
+    </section>
+
+    <section class="mt-20">
+      <h2 class="font-display text-3xl md:text-4xl text-center mb-12">
+        Descubre Mi Historia
+      </h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 max-w-4xl mx-auto">
+        <div class="bg-white/50 backdrop-blur-sm p-8 rounded-lg shadow-sm">
+          <h3 class="font-display text-2xl mb-4">Desarrollo Personal</h3>
+          <ul class="space-y-3 font-body text-primary-600">
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary-300 rounded-full mr-3"></span>
+              Crecimiento espiritual y emocional
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary-300 rounded-full mr-3"></span>
+              Equilibrio vida-trabajo
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary-300 rounded-full mr-3"></span>
+              Desarrollo de liderazgo
+            </li>
+          </ul>
+        </div>
+        <div class="bg-white/50 backdrop-blur-sm p-8 rounded-lg shadow-sm">
+          <h3 class="font-display text-2xl mb-4">Logros Profesionales</h3>
+          <ul class="space-y-3 font-body text-primary-600">
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary-300 rounded-full mr-3"></span>
+              Innovación en marketing digital
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary-300 rounded-full mr-3"></span>
+              Proyectos internacionales
+            </li>
+            <li class="flex items-center">
+              <span class="w-2 h-2 bg-primary-300 rounded-full mr-3"></span>
+              Reconocimientos de la industria
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>
